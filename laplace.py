@@ -40,6 +40,7 @@ def laplace(image):
     result = np.zeros_like(expanded_image, dtype=np.float32)
     height, width = expanded_image.size
 
+    #aplica a convolução na imagem usando a máscara
     for i in range(1, height - 1):
         for j in range(1, width - 1):
             patch = expanded_image.crop((j - 1, i - 1, j + 2, i + 2))
