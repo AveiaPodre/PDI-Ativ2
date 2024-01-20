@@ -78,7 +78,7 @@ lena_sobel_image = Image.fromarray(lena_sobel_array)
 lena_sobel_image = lena_sobel_image.convert('L')
 lena_sobel_image.save('lena_sobel.bmp')
 plt.subplot(1, 3, 1)
-plt.imshow(np.array(lena_sobel_image), cmap='gray')
+plt.imshow(lena_sobel_image, cmap='gray')
 plt.title('Filtro de Sobel')
 
 #faz uso do filtro de prewitt, salva a imagem e prepara para plotagem
@@ -87,17 +87,17 @@ lena_prewitt_image = Image.fromarray(lena_prewitt_array)
 lena_prewitt_image = lena_prewitt_image.convert('L')
 lena_prewitt_image.save('lena_prewitt.bmp')
 plt.subplot(1, 3, 2)
-plt.imshow(np.array(lena_prewitt_image), cmap='gray')
+plt.imshow(lena_prewitt_image, cmap='gray')
 plt.title('Filtro de Prewitt')
 
 #cálculo e plotagem da diferença dos dois processos
 lena_difference = lena_sobel_array - lena_prewitt_array
 lena_difference = np.clip(lena_difference, 0, 255)
 lena_difference = Image.fromarray(lena_difference)
-lena_difference =  lena_difference.convert('L')
+lena_difference = lena_difference.convert('L')
 lena_difference.save('lena_difference.bmp')
 plt.subplot(1, 3, 3)
-plt.imshow(np.array(lena_difference), cmap='gray')
+plt.imshow(lena_difference, cmap='gray')
 plt.title('Sobel X Prewitt')
 
 #plota as duas imagens geradas
