@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image, ImageFilter
 
-def highboost(image, enhance_factor=2):
+def highboost(image, k=2):
     image = image.convert('L')
 
     # Aplicação do filtro passa-baixa (suavização)
@@ -16,7 +16,7 @@ def highboost(image, enhance_factor=2):
     high_pass = image_array - low_pass_array
 
     # Aplicação do fator de realce
-    enhanced_image = np.array(image) + enhance_factor * high_pass
+    enhanced_image = image_array + k * high_pass
 
     # Ajuste do limite dos valores para o intervalo entre [0, 255] e conversão novamente para imagem
     enhanced_image = np.clip(enhanced_image, 0, 255).astype(np.uint8)

@@ -21,13 +21,14 @@ def laplace(image):
             patch = expanded_image.crop((j - 1, i - 1, j + 2, i + 2))
             result[i, j] = np.sum(patch * mask)
 
-    return result[1:-1, 1:-1]
+    #converte o array desejado em uma imagem em escala de cinza
+    result = Image.fromarray(result[1:-1, 1:-1])
+    result = result.convert('L')
+
+    return result
 
 lena = Image.open("lena_gray.bmp")
 lena_laplace = laplace(lena)
-
-lena_laplace = Image.fromarray(lena_laplace)
-lena_laplace = lena_laplace.convert('L')
 lena_laplace.save('lena_laplace.bmp')
 
 plt.imshow(lena_laplace, cmap='gray')
