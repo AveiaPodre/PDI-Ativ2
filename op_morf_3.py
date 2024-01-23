@@ -1,6 +1,5 @@
 from PIL import Image
 import numpy as np
-import cv2
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt
 
@@ -10,7 +9,6 @@ blue = (0, 0, 255, 255)
 yellow = (255, 255, 0, 255)
 white = (255, 255, 255, 255)
 black = (0, 0, 0, 255)
-target_colors = [blue, green, yellow]
 
 def extract(image, color, bg=white):
     width, height = image.size
@@ -129,13 +127,13 @@ plt.imshow(black_exclude, cmap='gray')
 plt.show()
 """
 
-
+""" color_fill
 blue_fill = hole_fill_process(quadro, blue)
 blue_green_fill = hole_fill_process(blue_fill, green)
 blue_green_yellow_fill = hole_fill_process(blue_green_fill, yellow)
 color_fill = blue_green_yellow_fill
 
-"""
+
 color_fill.save('color_fill.png')
 plt.imshow(color_fill, cmap='gray')
 plt.show()
